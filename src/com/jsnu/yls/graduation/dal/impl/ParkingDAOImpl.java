@@ -28,6 +28,16 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
     }
 
     /**
+     * 获取所有停车位
+     *
+     * @return
+     */
+    public List<Parking> getAllParkings(){
+        String jpql = "FROM Parking";
+        return this.getEntitiesByJPQL(jpql);
+    }
+
+    /**
      * 获取所有空闲车位
      *
      * @return

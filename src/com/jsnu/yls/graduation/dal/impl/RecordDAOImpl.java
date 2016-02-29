@@ -20,9 +20,9 @@ public class RecordDAOImpl extends BaseDAOImpl<Record> implements BaseDAO<Record
      * @param plateNumber
      * @return
      */
-    public Record getUnsettledRecordByPlateNumber(String plateNumber){
+    public Record getUnsettledRecordByPlateNumber(String plateNumber) {
         String jpql = "SELECT r FROM Record r WHERE r.plateNumber=?1";
-        return (Record) this.uniqueResult(jpql,plateNumber);
+        return (Record) this.uniqueResult(jpql, plateNumber);
     }
 
     /**
@@ -30,8 +30,19 @@ public class RecordDAOImpl extends BaseDAOImpl<Record> implements BaseDAO<Record
      *
      * @return
      */
-    public List<Record> getAllRecords(){
+    public List<Record> getAllRecords() {
         String jpql = "FROM Record";
+        return this.getEntitiesByJPQL(jpql);
+    }
+
+    /**
+     * 重载排序方法
+     *
+     * @param order
+     * @return
+     */
+    public List<Record> getAllRecords(String order) {
+        String jpql = "FROM Record r ORDER BY r." + order;
         return this.getEntitiesByJPQL(jpql);
     }
 
@@ -40,9 +51,10 @@ public class RecordDAOImpl extends BaseDAOImpl<Record> implements BaseDAO<Record
      *
      * @return
      */
-    public List<Record> getSettledRecords(){
+    public List<Record> getSettledRecords() {
         String jpql = "SELECT r FROM Record r WHERE r.cost!=0";
         return this.getEntitiesByJPQL(jpql);
     }
+
 
 }

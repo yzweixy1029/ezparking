@@ -28,4 +28,12 @@ public class RecordTest {
             System.out.println(r);
         }
     }
+
+    @Test
+    public void testGetRecordsByOrder(){
+        List<Record> records = recordService.getRecords("cost");
+        for (Record r : records){
+            System.out.println(r);
+        }
+    }
 }

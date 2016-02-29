@@ -20,16 +20,33 @@ public class RecordServiceImpl implements BaseService<Record> {
     private RecordDAOImpl recordDAO;
 
     /**
+     * get
+     *
+     * @param id
+     * @return
+     */
+    public Record getRecord(Integer id){
+        return recordDAO.getEntity(id);
+    }
+
+    /**
      * 获取所有停车单
      *
      * @return
      */
     public List<Record> getRecords() {
-        List<Record> records = recordDAO.getAllRecords();
-        return records;
+        return recordDAO.getAllRecords();
     }
 
-
+    /**
+     * 重载排序方法
+     *
+     * @param order
+     * @return
+     */
+    public List<Record> getRecords(String order) {
+        return recordDAO.getAllRecords(order);
+    }
 
 
 }

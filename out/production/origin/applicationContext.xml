@@ -16,17 +16,13 @@
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <!-- 这里支持多种寻址方式：classpath和file -->
                 <value>classpath:db.properties</value>
                 <value>classpath:mail.properties</value>
-                <!-- 推荐使用file的方式引入，这样可以将配置和代码分离 -->
-                <!--<value>file:/opt/demo/config/demo-mq.properties</value>-->
-                <!--<value>file:/opt/demo/config/demo-remote.properties</value>-->
             </list>
         </property>
     </bean>
 
-    <!-- 数据源配置 -->
+    <!-- 数据源配置 开始-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="user" value="${jdbc.user}"/>
         <property name="password" value="${jdbc.password}"/>
@@ -56,12 +52,29 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+    <!-- 数据源配置 结束-->
 
-    <!-- 发送邮件的相关配置 -->
-    <!--<bean id="mailMessage" class="org.springframework.mail.javamail.MimeMessageHelper">-->
-        <!--<property name="from" value="${mail.from}"/>-->
-    <!--</bean>-->
-    <!-- 申明JavaMailSenderImpl对象 -->
+
+    <!--json相关 开始-->
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <ref bean="mappingJacksonHttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+    <bean id="mappingJacksonHttpMessageConverter"
+          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+        <property name="supportedMediaTypes">
+            <list>
+                <value>application/json;charset=UTF-8</value>
+            </list>
+        </property>
+    </bean>
+    <!--json相关 结束-->
+
+
+    <!-- 发送邮件的相关配置 开始-->
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
         <property name="defaultEncoding" value="UTF-8"/>
         <property name="host" value="${mail.host}"/>
@@ -78,7 +91,7 @@
             </props>
         </property>
     </bean>
-
+    <!-- 发送邮件的相关配置 结束-->
 
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 

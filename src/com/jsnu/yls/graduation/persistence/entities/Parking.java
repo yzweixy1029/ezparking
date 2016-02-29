@@ -3,6 +3,7 @@ package com.jsnu.yls.graduation.persistence.entities;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * 停车位实体类
@@ -30,7 +31,7 @@ public class Parking {
      * 3=>检修
      */
     @Column(name = "STATU")
-    @NotEmpty
+    @NotNull
     private Integer statu;
 
     //车牌号

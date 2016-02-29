@@ -15,7 +15,7 @@ import java.util.Random;
 
 /**
  * 停车位业务逻辑层
- * <p>
+ *
  * Created by chenwei on 2016/2/22.
  */
 
@@ -28,6 +28,20 @@ public class ParkingServiceImpl implements BaseService<Parking> {
     private RecordDAOImpl recordDAO;
     @Autowired
     private PriceDAOImpl priceDAO;
+
+    public Parking getParking(Integer id){
+        return parkingDAO.getEntity(id);
+    }
+
+
+    /**
+     * 获取所有停车位
+     *
+     * @return
+     */
+    public List<Parking> getParkings(){
+        return parkingDAO.getAllParkings();
+    }
 
     /**
      * 在指定区域增加停车位
@@ -51,6 +65,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         }
 
     }
+
 
     /**
      * 删除车位

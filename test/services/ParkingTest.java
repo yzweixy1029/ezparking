@@ -28,12 +28,12 @@ public class ParkingTest {
 
     @Test
     public void testPark(){
-        parkingService.park("苏B909XF");
+        parkingService.park("苏BC852D");
     }
 
     @Test
     public void testLeave(){
-        parkingService.leave("苏B909XF");
+        parkingService.leave("苏BC852D");
     }
 
 }

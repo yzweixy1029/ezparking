@@ -23,6 +23,15 @@ public class PriceServiceImpl {
     private RecordDAOImpl recordDAO;
 
     /**
+     * 获取当前单价
+     *
+     * @return
+     */
+    public Price getPrice(){
+        return priceDAO.getEntity(1);
+    }
+
+    /**
      * 更新价格
      *
      * @param price
