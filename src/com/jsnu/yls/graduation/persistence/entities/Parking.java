@@ -30,9 +30,9 @@ public class Parking {
      * 2=>占用
      * 3=>检修
      */
-    @Column(name = "STATU")
+    @Column(name = "STATUS")
     @NotNull
-    private Integer statu;
+    private Integer status;
 
     //车牌号
     @Column(name = "PLATE_NUMBER")
@@ -54,12 +54,12 @@ public class Parking {
         this.parkingID = parkingID;
     }
 
-    public Integer getStatu() {
-        return statu;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setStatu(Integer statu) {
-        this.statu = statu;
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public String getPlateNumber() {

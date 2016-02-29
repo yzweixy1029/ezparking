@@ -23,7 +23,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      */
     public void changeParkingStatu(Integer id, Integer statu) {
         Parking parking = this.getEntity(id);
-        parking.setStatu(statu);
+        parking.setStatus(statu);
         this.saveOrUpdateEntity(parking);
     }
 
@@ -43,8 +43,18 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      * @return
      */
     public List<Parking> getFreeParkings() {
-        String jpql = "SELECT p FROM Parking p WHERE p.statu=1";
+        String jpql = "SELECT p FROM Parking p WHERE p.status=1";
         return this.getEntitiesByJPQL(jpql);
+    }
+
+    /**
+     * 获取空闲车位数量
+     *
+     * @return
+     */
+    public Integer getFreeParkingsNum(){
+        String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=1";
+        return (Integer) this.uniqueResult(jpql);
     }
 
     /**
@@ -53,7 +63,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      * @return
      */
     public List<Parking> getOccupiedParkings() {
-        String jpql = "SELECT p FROM Parking p WHERE p.statu=2";
+        String jpql = "SELECT p FROM Parking p WHERE p.status=2";
         return this.getEntitiesByJPQL(jpql);
     }
 
@@ -78,5 +88,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
         String jpql = "SELECT p FROM Parking p WHERE p.parkingID like ?1 ORDER BY p.parkingID";
         return this.findEntityByHQL(jpql, "%" + col + "%");
     }
+
+
 
 }

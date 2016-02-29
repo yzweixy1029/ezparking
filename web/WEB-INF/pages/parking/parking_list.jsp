@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>订单列表——奥坦科石油设备有限公司资源管理系统</title>
+    <title>停车位状态——EzParking停车管理系统</title>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
@@ -71,8 +71,8 @@
     <div class="navbar-inner">
 
         <a class="brand" href="${pageContext.request.contextPath}/scan_order">
-            <span class="first">Oiltech</span>
-            <span class="second">资源管理系统</span>
+            <span class="first">EzParking</span>
+            <span class="second">停车管理系统</span>
         </a>
 
         <ul class="nav navbar-nav navbar-right">
@@ -80,7 +80,7 @@
             <c:if test="${!empty sessionScope.account}">
                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">
-                    欢迎您,${sessionScope.account.name}
+                    欢迎您,${sessionScope.admin.userName}
                     <span class="caret"></span>
                 </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
@@ -99,13 +99,9 @@
 
         <div class="stats">
 
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[3]}</span>份结算中订单</p>
+            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[3]}</span>个空闲车位</p>
 
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[2]}</span>份运输中订单</p>
-
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[1]}</span>份在生产订单</p>
-
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[0]}</span>份预约订单</p>
+            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[2]}</span>个已占用车位</p>
 
         </div>
 

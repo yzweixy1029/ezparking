@@ -100,13 +100,14 @@ public class AdminHandler {
 
             map.put("admin", temp);
 
-            return "";
+            return "parking/parking_list";
         }
 
 
         map.put("error_message", "用户名或密码不正确");
-        return "";
+        return "user/login";
     }
+
 
     /**
      * 用户注销

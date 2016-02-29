@@ -53,14 +53,14 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         if (parkings.size() == 0) {
             Parking newParking = new Parking();
             newParking.setParkingID(col + "1");
-            newParking.setStatu(1);
+            newParking.setStatus(1);
             parkingDAO.saveEntity(newParking);
         } else {
             String lastID = parkings.get(parkings.size() - 1).getParkingID();
             Integer lastNum = Integer.valueOf(lastID.substring(1));
             Parking newParking = new Parking();
             newParking.setParkingID(col + String.valueOf(++lastNum));
-            newParking.setStatu(1);
+            newParking.setStatus(1);
             parkingDAO.saveEntity(newParking);
         }
 
@@ -74,6 +74,11 @@ public class ParkingServiceImpl implements BaseService<Parking> {
      */
     public void dropParking(Integer ID) {
         parkingDAO.deleteEntity(new Parking(ID));
+    }
+
+
+    public Integer[] checkStatus(){
+        return null;
     }
 
 
@@ -91,7 +96,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         Parking selectedParking = freeParkings.get(parkingID);
 
         //更新停车位状态
-        selectedParking.setStatu(2);
+        selectedParking.setStatus(2);
         selectedParking.setPlateNumber(plateNumber);
         parkingDAO.saveOrUpdateEntity(selectedParking);
 
@@ -113,7 +118,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         Parking occupiedParking = parkingDAO.getParkingByPlateNumber(plateNumber);
 
         //更新停车位状态
-        occupiedParking.setStatu(1);
+        occupiedParking.setStatus(1);
         occupiedParking.setPlateNumber("");
         parkingDAO.saveOrUpdateEntity(occupiedParking);
 
