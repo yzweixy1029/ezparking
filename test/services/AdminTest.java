@@ -23,8 +23,8 @@ public class AdminTest {
     @Test
     public void testAdd(){
         Admin admin = new Admin();
-        admin.setUserName("chenwei");
-        admin.setPassword("103122");
+        admin.setUserName("魏玄颖");
+        admin.setPassword("123456");
         adminService.saveOrUpdateAccount(admin);
     }
 

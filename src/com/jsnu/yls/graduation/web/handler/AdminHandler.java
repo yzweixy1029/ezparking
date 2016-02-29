@@ -61,7 +61,7 @@ public class AdminHandler {
         map.put("admin", admin);
 
 
-        return "";
+        return "user/login";
     }
 
 
