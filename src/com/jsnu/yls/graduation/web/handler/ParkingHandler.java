@@ -67,7 +67,7 @@ public class ParkingHandler {
     public List<Parking> dropParking(@PathVariable Integer id) {
         Parking parking = parkingService.getParking(id);
         parkingService.dropParking(id);
-        return parkingService.getParkingsByCol((String) parking.getParkingID().subSequence(0, 1));
+        return parkingService.getParkingsByCol(parking.getRegion());
     }
 
 

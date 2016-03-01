@@ -54,7 +54,8 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      */
     public Integer getFreeParkingsNum() {
         String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=1";
-        return (Integer) this.uniqueResult(jpql);
+        Long res = (Long) this.uniqueResult(jpql);
+        return Integer.valueOf(String.valueOf(res));
     }
 
     /**
@@ -64,7 +65,8 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      */
     public Integer getOccupiedParkingNum() {
         String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=2";
-        return (Integer) this.uniqueResult(jpql);
+        Long res = (Long) this.uniqueResult(jpql);
+        return Integer.valueOf(String.valueOf(res));
     }
 
     /**
