@@ -38,11 +38,7 @@ public class RecordHandler {
         List<Record> records = new ArrayList<>();
         for (String s : params) {
             if (order.equals(s)) {
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
                 records = recordService.getRecords(order);
-                for (Record r : records) {
-                    dateFormat.format(r.getStartTime());
-                }
                 break;
             }
         }

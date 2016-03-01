@@ -38,6 +38,10 @@ public class Parking {
     @Column(name = "PLATE_NUMBER")
     private String plateNumber;
 
+    //区域
+    @Column(name = "REGION")
+    private String region;
+
     public Integer getId() {
         return id;
     }
@@ -68,6 +72,14 @@ public class Parking {
 
     public void setPlateNumber(String plateNumber) {
         this.plateNumber = plateNumber;
+    }
+
+    public String getRegion() {
+        return region;
+    }
+
+    public void setRegion(String region) {
+        this.region = region;
     }
 
     public Parking() {

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * 停车位模块持久层
- *
+ * <p>
  * Created by WeiXY on 2016/2/22.
  */
 
@@ -32,7 +32,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      *
      * @return
      */
-    public List<Parking> getAllParkings(){
+    public List<Parking> getAllParkings() {
         String jpql = "FROM Parking";
         return this.getEntitiesByJPQL(jpql);
     }
@@ -52,7 +52,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      *
      * @return
      */
-    public Integer getFreeParkingsNum(){
+    public Integer getFreeParkingsNum() {
         String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=1";
         return (Integer) this.uniqueResult(jpql);
     }
@@ -62,7 +62,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      *
      * @return
      */
-    public Integer getOccupiedParkingNum(){
+    public Integer getOccupiedParkingNum() {
         String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=2";
         return (Integer) this.uniqueResult(jpql);
     }
@@ -95,10 +95,20 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      * @return
      */
     public List<Parking> getParkingsByCol(String col) {
-        String jpql = "SELECT p FROM Parking p WHERE p.parkingID like ?1 ORDER BY p.parkingID";
-        return this.findEntityByHQL(jpql, "%" + col + "%");
+        String jpql = "SELECT p FROM Parking p WHERE p.region=?1";
+        return this.findEntityByHQL(jpql, col);
     }
 
+    /**
+     * 获取所有区域
+     *
+     * @return
+     */
+    public String[] getAllRegions(){
+        String jpql = "SELECT distinct P.region FROM Parking p";
+        return (String[]) this.uniqueResult(jpql);
+
+    }
 
 
 }

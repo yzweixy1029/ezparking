@@ -10,14 +10,11 @@ import com.jsnu.yls.graduation.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 /**
  * 停车位模块业务逻辑层
- *
+ * <p>
  * Created by WeiXY on 2016/2/22.
  */
 
@@ -31,7 +28,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
     @Autowired
     private PriceDAOImpl priceDAO;
 
-    public Parking getParking(Integer id){
+    public Parking getParking(Integer id) {
         return parkingDAO.getEntity(id);
     }
 
@@ -41,9 +38,41 @@ public class ParkingServiceImpl implements BaseService<Parking> {
      *
      * @return
      */
-    public List<Parking> getParkings(){
+    public List<Parking> getParkings() {
         return parkingDAO.getAllParkings();
     }
+
+
+    /**
+     * 返回按区域划分好的车位列表
+     *
+     * @return
+     */
+    public Map<String, List<Parking>> getOrderedParkings() {
+        List<Parking> parkings;
+        Map<String, List<Parking>> orderedParkings = new HashMap<>();
+        String[] regions = parkingDAO.getAllRegions();
+        for (String s : regions) {
+            parkings = new ArrayList<>();
+            parkings = parkingDAO.getParkingsByCol(s);
+            orderedParkings.put(s, parkings);
+        }
+
+        return orderedParkings;
+
+    }
+
+
+    /**
+     * 获取指定区域的停车位
+     *
+     * @param col
+     * @return
+     */
+    public List<Parking> getParkingsByCol(String col) {
+        return parkingDAO.getParkingsByCol(col);
+    }
+
 
     /**
      * 在指定区域增加停车位
@@ -52,19 +81,13 @@ public class ParkingServiceImpl implements BaseService<Parking> {
      */
     public void addParking(String col) {
         List<Parking> parkings = parkingDAO.getParkingsByCol(col);
-        if (parkings.size() == 0) {
-            Parking newParking = new Parking();
-            newParking.setParkingID(col + "1");
-            newParking.setStatus(1);
-            parkingDAO.saveEntity(newParking);
-        } else {
-            String lastID = parkings.get(parkings.size() - 1).getParkingID();
-            Integer lastNum = Integer.valueOf(lastID.substring(1));
-            Parking newParking = new Parking();
-            newParking.setParkingID(col + String.valueOf(++lastNum));
-            newParking.setStatus(1);
-            parkingDAO.saveEntity(newParking);
-        }
+
+        String lastID = parkings.get(parkings.size() - 1).getParkingID();
+        Integer lastNum = Integer.valueOf(lastID.substring(1));
+        Parking newParking = new Parking();
+        newParking.setParkingID(col + String.valueOf(++lastNum));
+        newParking.setStatus(1);
+        parkingDAO.saveEntity(newParking);
 
     }
 
@@ -78,19 +101,21 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         parkingDAO.deleteEntity(new Parking(ID));
     }
 
+
     /**
      * 返回停车位情况
      *
      * @return
      */
-    public Map<String,Integer> checkStatus(){
+    public Map<String, Integer> checkStatus() {
         Integer freeParkingNum = parkingDAO.getFreeParkingsNum();
         Integer occupiedParkingNum = parkingDAO.getOccupiedParkingNum();
-        Map<String,Integer> parkingStatus = new HashMap<>();
-        parkingStatus.put("freeNum",freeParkingNum);
-        parkingStatus.put("occupiedNum",occupiedParkingNum);
+        Map<String, Integer> parkingStatus = new HashMap<>();
+        parkingStatus.put("freeNum", freeParkingNum);
+        parkingStatus.put("occupiedNum", occupiedParkingNum);
         return parkingStatus;
     }
+
 
     /**
      * 模拟停车操作
@@ -118,6 +143,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         recordDAO.saveEntity(record);
 
     }
+
 
     /**
      * 模拟取车操作
