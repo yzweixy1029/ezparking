@@ -9,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/2/25.
+ * 停车记录模块业务逻辑层单元测试
+ *
+ * Created by WeiXY on 2016/2/25.
  */
 public class RecordTest {
 

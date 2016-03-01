@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by Administrator on 2016/2/25.
+ * 财务模块业务逻辑层单元测试
+ *
+ * Created by WeiXY on 2016/2/25.
  */
 public class PriceTest {
 

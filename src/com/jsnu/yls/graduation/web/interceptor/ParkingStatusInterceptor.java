@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Created by 12079 on 2015/10/14.
+ * 查询停车位状态拦截器
+ *
+ * Created by WeiXY on 2015/10/14.
  */
 public class ParkingStatusInterceptor implements HandlerInterceptor {
 

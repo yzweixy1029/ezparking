@@ -10,8 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 用户Ser
- * Created by chenwei on 2015/9/17.
+ * 账户模块业务逻辑层
+ *
+ * Created by WeiXY on 2015/9/17.
  */
 @Service(value = "adminService")
 public class AdminServiceImpl implements BaseService<Admin> {

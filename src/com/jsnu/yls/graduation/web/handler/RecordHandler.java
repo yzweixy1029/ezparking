@@ -13,9 +13,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 停车记录Handler
- * <p>
- * Created by Administrator on 2016/2/22.
+ * 停车记录模块控制层
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 @Controller
 public class RecordHandler {

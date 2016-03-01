@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 /**
  * 默认异常处理
  *
- * Created by chenwei on 2016/1/23.
+ * Created by WeiXY on 2016/1/23.
  */
 @ControllerAdvice
 public class DefaultExceptionHandler {

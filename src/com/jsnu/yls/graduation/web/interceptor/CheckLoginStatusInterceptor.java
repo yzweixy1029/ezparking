@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 检查登录状态的拦截器
+ * 检查登录状态拦截器
  *
- * Created by 12079 on 2016/1/23.
+ * Created by WeiXY on 2016/1/23.
  */
 public class CheckLoginStatusInterceptor implements HandlerInterceptor {
     @Override

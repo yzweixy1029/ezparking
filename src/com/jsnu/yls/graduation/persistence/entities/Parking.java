@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 /**
  * 停车位实体类
  *
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 
 @Entity

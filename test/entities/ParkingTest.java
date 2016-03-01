@@ -9,7 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 /**
- * Created by Administrator on 2016/2/22.
+ * 停车位模块实体类单元测试
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 public class ParkingTest {
 

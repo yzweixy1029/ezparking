@@ -3,8 +3,9 @@ package com.jsnu.yls.graduation.dal;
 import java.util.List;
 
 /**
- * DAO接口
- * Created by chenwei on 2015/9/9.
+ * 持久层接口
+ *
+ * Created by WeiXY on 2015/9/9.
  */
 public interface BaseDAO<T> {
 

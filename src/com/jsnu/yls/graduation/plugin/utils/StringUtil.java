@@ -3,7 +3,7 @@ package com.jsnu.yls.graduation.plugin.utils;
 /**
  * 字符串相关工具类
  *
- * Created by Obvious on 2015/9/28.
+ * Created by WeiXY on 2015/9/28.
  */
 public class StringUtil {
 

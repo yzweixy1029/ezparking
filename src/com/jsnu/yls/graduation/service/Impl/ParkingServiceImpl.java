@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.Random;
 
 /**
- * 停车位业务逻辑层
+ * 停车位模块业务逻辑层
  *
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 
 @Service(value = "parkingService")

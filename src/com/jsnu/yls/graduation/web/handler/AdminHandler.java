@@ -17,10 +17,10 @@ import java.net.URLEncoder;
 import java.util.Map;
 
 /**
- * 管理员handler
+ * 账户模块控制层
  *
- * Created by chenwei on 2015/9/17.
- * modify chenwei on 2016/2/22
+ * Created by WeiXY on 2015/9/17.
+ * modify WeiXY on 2016/2/22
  */
 @Controller
 @SessionAttributes(value = {"admin"})

@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 /**
  * 数据相关工具类
  * 
- * @author Caterina
+ * @author WeiXY
  *
  */
 public class DataUtil {

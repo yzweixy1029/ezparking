@@ -1,15 +1,15 @@
 package services;
 
-import com.jsnu.yls.graduation.dal.impl.ParkingDAOImpl;
 import com.jsnu.yls.graduation.persistence.entities.Admin;
 import com.jsnu.yls.graduation.service.Impl.AdminServiceImpl;
-import com.jsnu.yls.graduation.service.Impl.ParkingServiceImpl;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by Administrator on 2016/2/25.
+ * 账户模块业务逻辑层单元测试
+ *
+ * Created by WeiXY on 2016/2/25.
  */
 public class AdminTest {
 

@@ -11,8 +11,8 @@ import javax.mail.internet.MimeMessage;
 
 /**
  * 邮件任务
- * <p>
- * Created by Administrator on 2016/2/25.
+ *
+ * Created by WeiXY on 2016/2/25.
  */
 
 @Component

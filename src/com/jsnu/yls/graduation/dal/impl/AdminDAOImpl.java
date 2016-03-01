@@ -9,8 +9,9 @@ import javax.persistence.Query;
 import java.util.List;
 
 /**
- * 用户
- * Created by chenwei on 2015/9/17.
+ * 账户模块持久层
+ *
+ * Created by WeiXY on 2015/9/17.
  */
 @Repository
 public class AdminDAOImpl extends BaseDAOImpl<Admin> implements BaseDAO<Admin> {

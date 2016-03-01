@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * 停车记录数据访问层
- * <p>
- * Created by chenwei on 2016/2/22.
+ * 停车记录模块持久层
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 @Repository
 public class RecordDAOImpl extends BaseDAOImpl<Record> implements BaseDAO<Record> {

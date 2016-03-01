@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * 停车记录实体类
  *
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 
 @Entity

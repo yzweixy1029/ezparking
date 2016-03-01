@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 价格业务逻辑层
+ * 财务模块业务逻辑层
  *
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 @Service(value = "priceService")
 public class PriceServiceImpl {

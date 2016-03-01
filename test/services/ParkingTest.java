@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
- * Created by Administrator on 2016/2/22.
+ * 停车位模块及模拟停车单元测试
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 public class ParkingTest {
 

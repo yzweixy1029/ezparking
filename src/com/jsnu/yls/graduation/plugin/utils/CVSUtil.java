@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
 /**
  * CVS相关工具类
  *
- * Created by Obvious on 2015/10/2.
+ * Created by WeiXY on 2015/10/2.
  */
 public class CVSUtil {
 

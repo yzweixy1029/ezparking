@@ -7,7 +7,7 @@ import javax.persistence.*;
 /**
  * 管理员实体类
  * <p>
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 
 @Entity

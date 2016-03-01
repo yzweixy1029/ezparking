@@ -10,6 +10,8 @@ import java.util.Map;
 
 /**
  * 通用setter and getter
+ *
+ * @author WeiXY
  */
 public class PropertyUtil {
 

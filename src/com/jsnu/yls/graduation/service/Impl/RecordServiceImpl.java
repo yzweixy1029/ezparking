@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 /**
- * 停车记录业务逻辑层
+ * 停车记录模块业务逻辑层
  * <p>
- * Created by chenwei on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 @Service(value = "recordService")
 public class RecordServiceImpl implements BaseService<Record> {

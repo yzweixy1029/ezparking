@@ -11,8 +11,9 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 /**
- * DAO基类
- * Created by chenwei on 2015/9/9.
+ * 持久层基类
+ *
+ * Created by WeiXY on 2015/9/9.
  */
 
 @Transactional

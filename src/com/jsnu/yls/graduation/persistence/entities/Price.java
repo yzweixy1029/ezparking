@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * 停车价格实体类
  *
- * Created by Administrator on 2016/2/22.
+ * Created by WeiXY on 2016/2/22.
  */
 @Entity
 @Table(name = "PRICE")

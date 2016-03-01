@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * 停车位数据访问层
- * <p>
- * Created by chenwei on 2016/2/22.
+ * 停车位模块持久层
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 
 @Repository(value = "parkingDAO")

@@ -10,9 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 停车位Handler
- * <p>
- * Created by chenwei on 2016/2/22.
+ * 停车位模块控制层
+ *
+ * Created by WeiXY on 2016/2/22.
  */
 @Controller
 public class ParkingHandler {
