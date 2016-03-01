@@ -20,7 +20,7 @@
     <meta name="author" content="">
 
     <title>停车位状态——EzParking停车管理系统</title>
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico" />
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
@@ -77,7 +77,7 @@
 
         <ul class="nav navbar-nav navbar-right">
             <%--<li><a href="#" class="hidden-phone visible-tablet visible-desktop" role="button">账户管理</a></li>--%>
-            <c:if test="${!empty sessionScope.account}">
+            <c:if test="${!empty sessionScope.admin}">
                 <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">
                     欢迎您,${sessionScope.admin.userName}
@@ -99,88 +99,73 @@
 
         <div class="stats">
 
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[3]}</span>个空闲车位</p>
+            <p class="stat"><span class="number" style="color: orange">${sessionScope.state_num.overhauledNum}</span>个检修中车位</p>
 
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num[2]}</span>个已占用车位</p>
+            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num.occupiedNum}</span>个已占用车位</p>
+
+            <p class="stat"><span class="number" style="color: green">${sessionScope.state_num.freeNum}</span>个空闲车位</p>
 
         </div>
 
-        <h1 class="page-title">订单一览</h1>
+        <h1 class="page-title">停车位一览</h1>
 
     </div>
 
     <ul class="breadcrumb">
         <li><a href="${pageContext.request.contextPath}/scan_order">主页</a> <span class="divider">/</span></li>
-        <li class="active">订单一览</li>
+        <li class="active">停车位一览</li>
     </ul>
 
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <div class="row-fluid">
-                <div class="block span6">
-                    <a href="#tablewidget" class="block-heading" data-toggle="collapse">订单列表<span
-                            class="label label-warning">${fn:length(orders)}</span></a>
+            <c:forEach items="${requestScope.parkingList}" var="region">
 
-                    <div id="tablewidget" class="block-body collapse in">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th>客户信息</th>
-                                <th>产品信息</th>
-                                <th>约定交货时间</th>
-                                <th>贸易方式</th>
-                                <th>订单进度</th>
-                                <th>编辑</th>
+                <div class="row-fluid">
+                    <div class="block span6">
+                        <a href="#tablewidget_${region.key}" class="block-heading"
+                           data-toggle="collapse">区域${region.key}<span
+                                class="label label-warning">${fn:length(region.value)}</span></a>
 
-                            </tr>
-                            </thead>
+                        <div id="tablewidget_${region.key}" class="block-body collapse in">
+                            <table class="table table-hover table-bordered" style="text-align: center">
 
-                            <tbody>
-                            <c:if test="${empty orders}">
-                                <tr>
-                                    <td colspan="6" style="text-align:center;color: grey">无任何订单</td>
-                                </tr>
-                            </c:if>
-                            <c:if test="${!empty orders}">
-                                <c:forEach items="${orders}" var="order">
+                                <tbody>
+                                <c:if test="${empty region.value}">
                                     <tr>
-                                        <td>${order.customerName}</td>
-                                        <td>${order.productionInfo}</td>
-                                        <td>${order.agreedDeliveryDate}</td>
-                                        <td>${order.tradeWay}</td>
-                                        <c:if test="${order.orderState == 0}">
-                                            <td style="color: red">已预约</td>
-                                        </c:if>
-                                        <c:if test="${order.orderState == 1}">
-                                            <td style="color: red">生产中</td>
-                                        </c:if>
-                                        <c:if test="${order.orderState == 2}">
-                                            <td style="color: red">运输中</td>
-                                        </c:if>
-                                        <c:if test="${order.orderState == 3}">
-                                            <td style="color: red">结算中</td>
-                                        </c:if>
-                                        <c:if test="${order.orderState == 4}">
-                                            <td style="color: red">已完成</td>
-                                        </c:if>
-
-                                        <td><a href="get_order/${order.id}"><span
-                                                class="glyphicon glyphicon-list"
-                                                aria-hidden="true"></span>详情</a>|
-                                            <a href="delete_order/${order.id}"><span
-                                                    class="glyphicon glyphicon-trash"
-                                                    aria-hidden="true"></span>删除</a>
-                                        </td>
-
+                                        <td colspan="6" style="text-align:center;color: grey">无任何停车位</td>
                                     </tr>
-                                </c:forEach>
-                            </c:if>
-                            </tbody>
-                        </table>
+                                </c:if>
+                                <c:if test="${!empty region.value}">
+                                    <tr>
+                                        <c:forEach items="${region.value}" var="parking">
+
+                                            <c:if test="${parking.status==1}">
+                                                <td><span style="color: green" class="glyphicon glyphicon-ok-sign"
+                                                          aria-hidden="true">空闲</span><br>${parking.parkingID}</td>
+                                            </c:if>
+
+                                            <c:if test="${parking.status==2}">
+                                                <td><span style="color: red" class="glyphicon glyphicon-remove-sign"
+                                                          aria-hidden="true">占用</span><br>${parking.parkingID}<br>${parking.plateNumber}
+                                                </td>
+                                            </c:if>
+
+                                            <c:if test="${parking.status==3}">
+                                                <td><span style="color: orange" class="glyphicon glyphicon-remove-sign"
+                                                          aria-hidden="true">检修</span><br>${parking.parkingID}</td>
+                                            </c:if>
+
+                                        </c:forEach>
+                                    </tr>
+                                </c:if>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </c:forEach>
 
 
             <footer style="position:fixed;bottom:0px;width: 98%">

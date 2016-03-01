@@ -100,7 +100,7 @@ public class AdminHandler {
 
             map.put("admin", temp);
 
-            return "parking/parking_list";
+            return "redirect:listParking";
         }
 
 

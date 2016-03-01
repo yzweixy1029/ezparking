@@ -30,7 +30,7 @@ public class ParkingTest {
 
     @Test
     public void testPark(){
-        parkingService.park("苏BC852D");
+        parkingService.park("苏B909XF");
     }
 
     @Test

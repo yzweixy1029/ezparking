@@ -28,7 +28,9 @@ public class ParkingTest {
     @Test
     public void testCreate(){
         Parking parking = new Parking();
-        parking.setParkingID("A001");
+        parking.setParkingID("C1");
+        parking.setRegion("C");
+        parking.setStatus(1);
         parkingDAO.saveEntity(parking);
     }
 

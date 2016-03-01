@@ -70,6 +70,17 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
     }
 
     /**
+     * 获取检修中车位数量
+     *
+     * @return
+     */
+    public Integer getOverhauledParkingNum(){
+        String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=3";
+        Long res = (Long) this.uniqueResult(jpql);
+        return Integer.valueOf(String.valueOf(res));
+    }
+
+    /**
      * 获取所有已占用车位
      *
      * @return
@@ -106,10 +117,10 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      *
      * @return
      */
-    public String[] getAllRegions(){
-        String jpql = "SELECT distinct P.region FROM Parking p";
-        return (String[]) this.uniqueResult(jpql);
-
+    public List<String> getAllRegions(){
+        String jpql = "SELECT distinct p.region FROM Parking p";
+        String sql = "SELECT distinct a.region FROM parking as a";
+        return this.executeSQLQuery(sql);
     }
 
 

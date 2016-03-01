@@ -51,7 +51,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
     public Map<String, List<Parking>> getOrderedParkings() {
         List<Parking> parkings;
         Map<String, List<Parking>> orderedParkings = new HashMap<>();
-        String[] regions = parkingDAO.getAllRegions();
+        List<String> regions = parkingDAO.getAllRegions();
         for (String s : regions) {
             parkings = new ArrayList<>();
             parkings = parkingDAO.getParkingsByCol(s);
@@ -60,6 +60,15 @@ public class ParkingServiceImpl implements BaseService<Parking> {
 
         return orderedParkings;
 
+    }
+
+    /**
+     * 返回所有停车位区域
+     *
+     * @return
+     */
+    public List<String> getAllRegions() {
+        return parkingDAO.getAllRegions();
     }
 
 
@@ -87,6 +96,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         Parking newParking = new Parking();
         newParking.setParkingID(col + String.valueOf(++lastNum));
         newParking.setStatus(1);
+        newParking.setRegion(col);
         parkingDAO.saveEntity(newParking);
 
     }
@@ -110,9 +120,11 @@ public class ParkingServiceImpl implements BaseService<Parking> {
     public Map<String, Integer> checkStatus() {
         Integer freeParkingNum = parkingDAO.getFreeParkingsNum();
         Integer occupiedParkingNum = parkingDAO.getOccupiedParkingNum();
+        Integer overhauledParkingNum = parkingDAO.getOverhauledParkingNum();
         Map<String, Integer> parkingStatus = new HashMap<>();
         parkingStatus.put("freeNum", freeParkingNum);
         parkingStatus.put("occupiedNum", occupiedParkingNum);
+        parkingStatus.put("overhauledNum", overhauledParkingNum);
         return parkingStatus;
     }
 

@@ -38,7 +38,8 @@ public class ParkingHandler {
     @RequestMapping(value = "/listParking")
     public String parkingList(Map<String, Object> map) {
         map.put("parkingList",parkingService.getOrderedParkings());
-        return "";
+        map.put("parkingRegion",parkingService.getAllRegions());
+        return "parking/parking_list";
     }
 
 
