@@ -61,6 +61,10 @@
             <mvc:exclude-mapping path="/login"/>
             <bean class="com.jsnu.yls.graduation.web.interceptor.CheckLoginStatusInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/*"/>
+            <bean class="com.jsnu.yls.graduation.web.interceptor.ParkingStatusInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 
     <!--若未映射，交给WEB服务器默认的Servlet处理-->

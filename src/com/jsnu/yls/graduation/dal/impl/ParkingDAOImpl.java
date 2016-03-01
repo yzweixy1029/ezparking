@@ -58,6 +58,16 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
     }
 
     /**
+     * 获取占用车位数量
+     *
+     * @return
+     */
+    public Integer getOccupiedParkingNum(){
+        String jpql = "SELECT COUNT(p) FROM Parking p WHERE p.status=2";
+        return (Integer) this.uniqueResult(jpql);
+    }
+
+    /**
      * 获取所有已占用车位
      *
      * @return

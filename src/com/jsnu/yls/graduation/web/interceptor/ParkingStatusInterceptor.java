@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Created by 12079 on 2015/10/14.
  */
-public class OrderStateInterceptor implements HandlerInterceptor {
+public class ParkingStatusInterceptor implements HandlerInterceptor {
 
     @Autowired
     private ParkingServiceImpl parkingService;
@@ -23,7 +23,7 @@ public class OrderStateInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, ModelAndView modelAndView) throws Exception {
-//        httpServletRequest.getSession().setAttribute("state_num",parkingService.getStateNum());
+        httpServletRequest.getSession().setAttribute("state_num",parkingService.checkStatus());
     }
 
     @Override

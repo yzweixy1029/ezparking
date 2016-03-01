@@ -10,7 +10,9 @@ import com.jsnu.yls.graduation.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -76,11 +78,19 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         parkingDAO.deleteEntity(new Parking(ID));
     }
 
-
-    public Integer[] checkStatus(){
-        return null;
+    /**
+     * 返回停车位情况
+     *
+     * @return
+     */
+    public Map<String,Integer> checkStatus(){
+        Integer freeParkingNum = parkingDAO.getFreeParkingsNum();
+        Integer occupiedParkingNum = parkingDAO.getOccupiedParkingNum();
+        Map<String,Integer> parkingStatus = new HashMap<>();
+        parkingStatus.put("freeNum",freeParkingNum);
+        parkingStatus.put("occupiedNum",occupiedParkingNum);
+        return parkingStatus;
     }
-
 
     /**
      * 模拟停车操作
