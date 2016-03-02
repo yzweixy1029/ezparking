@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4900c471-41a8-43dd-8f79-5a565c5ec73c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/record/record_list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/origin/services/ParkingTest.class" afterPath="$PROJECT_DIR$/out/test/origin/services/ParkingTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/persistence/entities/Record.class" afterPath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/persistence/entities/Record.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.class" afterPath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/web/handler/RecordHandler.class" afterPath="$PROJECT_DIR$/out/artifacts/origin_war_exploded/WEB-INF/classes/com/jsnu/yls/graduation/web/handler/RecordHandler.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/persistence/entities/Record.class" afterPath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/persistence/entities/Record.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.class" afterPath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/web/handler/RecordHandler.class" afterPath="$PROJECT_DIR$/out/production/origin/com/jsnu/yls/graduation/web/handler/RecordHandler.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/persistence/entities/Record.java" afterPath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/persistence/entities/Record.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.java" afterPath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/service/Impl/ParkingServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/web/handler/RecordHandler.java" afterPath="$PROJECT_DIR$/src/com/jsnu/yls/graduation/web/handler/RecordHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/services/ParkingTest.java" afterPath="$PROJECT_DIR$/test/services/ParkingTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/WEB-INF/pages/parking/parking_list.jsp" afterPath="$PROJECT_DIR$/web/WEB-INF/pages/parking/parking_list.jsp" />
     </list>
     <ignored path="origin.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +67,8 @@
       <file leaf-file-name="parking_list.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/parking/parking_list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04761905">
-              <caret line="162" column="36" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.9206349">
+              <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1358,7 +1357,7 @@
       <workItem from="1456709152144" duration="19798000" />
       <workItem from="1456754537181" duration="4398000" />
       <workItem from="1456795258076" duration="12346000" />
-      <workItem from="1456927141440" duration="4334000" />
+      <workItem from="1456927141440" duration="4388000" />
     </task>
     <task id="LOCAL-00001" summary="autocommit">
       <created>1456756729491</created>
@@ -1390,7 +1389,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456825766606</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="ideal auto commit">
+      <created>1456935634120</created>
+      <option name="number" value="00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1456935634120</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1426,7 +1431,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76112000" />
+    <option name="totallyTimeSpent" value="76166000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="142" y="94" width="2187" height="1236" extended-state="0" />
@@ -1915,8 +1920,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/pages/parking/parking_list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04761905">
-          <caret line="162" column="36" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
+        <state vertical-scroll-proportion="0.9206349">
+          <caret line="217" column="0" selection-start-line="217" selection-start-column="0" selection-end-line="217" selection-end-column="0" />
           <folding />
         </state>
       </provider>
