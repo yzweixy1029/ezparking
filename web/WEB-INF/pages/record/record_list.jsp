@@ -19,7 +19,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>停车位状态——EzParking停车管理系统</title>
+    <title>停车记录列表——EzParking停车管理系统</title>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
@@ -99,73 +99,70 @@
 
         <div class="stats">
 
-            <p class="stat"><span class="number" style="color: orange">${sessionScope.state_num.overhauledNum}</span>个检修中车位</p>
+            <p class="stat"><span class="number" style="color: orange">${sessionScope.state_num.overhauledNum}</span>个检修中车位
+            </p>
 
-            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num.occupiedNum}</span>个已占用车位</p>
+            <p class="stat"><span class="number" style="color: red">${sessionScope.state_num.occupiedNum}</span>个已占用车位
+            </p>
 
             <p class="stat"><span class="number" style="color: green">${sessionScope.state_num.freeNum}</span>个空闲车位</p>
 
         </div>
 
-        <h1 class="page-title">停车位一览</h1>
+        <h1 class="page-title">停车记录一览</h1>
 
     </div>
 
     <ul class="breadcrumb">
         <li><a href="${pageContext.request.contextPath}/scan_order">主页</a> <span class="divider">/</span></li>
-        <li class="active">停车位一览</li>
+        <li class="active">停车记录一览</li>
     </ul>
 
     <div class="container-fluid">
         <div class="row-fluid">
 
-            <c:forEach items="${requestScope.parkingList}" var="region">
 
-                <div class="row-fluid">
-                    <div class="block span6">
-                        <a href="#tablewidget_${region.key}" class="block-heading"
-                           data-toggle="collapse">区域${region.key}<span
-                                class="label label-warning">${fn:length(region.value)}</span></a>
+            <div class="row-fluid">
+                <div class="block span6">
+                    <a href="#tablewidget" class="block-heading"
+                       data-toggle="collapse">停车记录<span
+                            class="label label-warning">${fn:length(requestScope.records)}</span></a>
 
-                        <div id="tablewidget_${region.key}" class="block-body collapse in">
-                            <table class="table table-hover table-bordered" style="text-align: center">
+                    <div id="tablewidget" class="block-body collapse in">
+                        <table class="table table-hover table-bordered">
 
-                                <tbody>
-                                <c:if test="${empty region.value}">
+                            <tr>
+                                <th>车牌号</th>
+                                <th>所停车位</th>
+                                <th>开始时间</th>
+                                <th>离开时间</th>
+                                <th>花费(元)</th>
+                            </tr>
+
+                            <tbody>
+                            <c:if test="${empty requestScope.records}">
+                                <tr>
+                                    <td colspan="6" style="text-align:center;color: grey">无任何停车记录</td>
+                                </tr>
+                            </c:if>
+                            <c:if test="${!empty requestScope.records}">
+
+                                <c:forEach items="${requestScope.records}" var="record">
                                     <tr>
-                                        <td colspan="6" style="text-align:center;color: grey">无任何停车位</td>
+                                        <td>${record.plateNumber}</td>
+                                        <td>${record.parkingID}</td>
+                                        <td><fmt:formatDate value="${record.startTime}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+                                        <td><fmt:formatDate value="${record.endTime}" pattern="yyyy-MM-dd hh:mm:ss"/></td>
+                                        <td>${record.cost}</td>
                                     </tr>
-                                </c:if>
-                                <c:if test="${!empty region.value}">
-                                    <tr>
-                                        <c:forEach items="${region.value}" var="parking">
+                                </c:forEach>
 
-                                            <c:if test="${parking.status==1}">
-                                                <td><span style="color: green" class="glyphicon glyphicon-ok-sign"
-                                                          aria-hidden="true">空闲</span><br>${parking.parkingID}</td>
-                                            </c:if>
-
-                                            <c:if test="${parking.status==2}">
-                                                <td><span style="color: red" class="glyphicon glyphicon-remove-sign"
-                                                          aria-hidden="true">占用</span><br>${parking.parkingID}<br>${parking.plateNumber}
-                                                </td>
-                                            </c:if>
-
-                                            <c:if test="${parking.status==3}">
-                                                <td><span style="color: orange" class="glyphicon glyphicon-remove-sign"
-                                                          aria-hidden="true">检修</span><br>${parking.parkingID}</td>
-                                            </c:if>
-
-                                        </c:forEach>
-                                    </tr>
-                                </c:if>
-                                </tbody>
-                            </table>
-                        </div>
+                            </c:if>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-            </c:forEach>
+            </div>
 
 
             <footer style="position:fixed;bottom:0px;width: 98%">
@@ -186,17 +183,28 @@
         <div class="panel-heading">
             <h3 class="panel-title">操作</h3>
         </div>
+        <c:if test="${authority == 0}">
             <div class="panel-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="/getAllRecords">查看停车记录</a>
+                        <a href="get_users">管理账户</a>
                     </li>
                     <li class="list-group-item">
-                        <a href="/getIncome">查看财务信息</a>
+                        <a href="#">编辑业务员提成</a>
                     </li>
                 </ul>
             </div>
-        </div>
+        </c:if>
+        <c:if test="${authority == 1}">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <a href="${pageContext.request.contextPath}/create_order">创建订单</a>
+                    </li>
+                </ul>
+            </div>
+        </c:if>
+
     </div>
 </div>
 

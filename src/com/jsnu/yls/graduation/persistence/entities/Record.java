@@ -3,6 +3,7 @@ package com.jsnu.yls.graduation.persistence.entities;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.util.Date;
 
 /**
  * 停车记录实体类
@@ -31,12 +32,12 @@ public class Record {
     //停车开始时间
     @Column(name = "START_TIME")
     @NotEmpty
-    private long startTime;
+    private Date startTime;
 
     //停车结束时间
     @Column(name = "END_TIME")
     @NotEmpty
-    private long endTime;
+    private Date endTime;
 
     //车牌号
     @Column(name = "PLATE_NUMBER")
@@ -67,19 +68,19 @@ public class Record {
         this.cost = cost;
     }
 
-    public long getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(long startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public long getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(long endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 

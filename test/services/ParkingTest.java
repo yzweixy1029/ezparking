@@ -35,7 +35,7 @@ public class ParkingTest {
 
     @Test
     public void testLeave(){
-        parkingService.leave("苏BC852D");
+        parkingService.leave("苏B909XF");
     }
 
 }

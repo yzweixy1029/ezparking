@@ -10,6 +10,7 @@ import com.jsnu.yls.graduation.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -151,7 +152,7 @@ public class ParkingServiceImpl implements BaseService<Parking> {
         Record record = new Record();
         record.setParkingID(selectedParking.getParkingID());
         record.setPlateNumber(plateNumber);
-        record.setStartTime(System.currentTimeMillis());
+        record.setStartTime(new Date(System.currentTimeMillis()));
         recordDAO.saveEntity(record);
 
     }
@@ -173,9 +174,9 @@ public class ParkingServiceImpl implements BaseService<Parking> {
 
         //更新停车记录
         Record record = recordDAO.getUnsettledRecordByPlateNumber(plateNumber);
-        record.setEndTime(System.currentTimeMillis());
+        record.setEndTime(new Date(System.currentTimeMillis()));
         //计算停车价格
-        long parkMillis = System.currentTimeMillis() - record.getStartTime();
+        long parkMillis = System.currentTimeMillis() - record.getStartTime().getTime();
         long parkHours = 0;
         if (parkMillis % (60 * 60 * 1000) == 0) {
             parkHours = parkMillis / (60 * 60 * 1000);
