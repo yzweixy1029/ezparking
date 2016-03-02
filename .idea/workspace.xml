@@ -1351,7 +1351,7 @@
       <workItem from="1456709152144" duration="19798000" />
       <workItem from="1456754537181" duration="4398000" />
       <workItem from="1456795258076" duration="12346000" />
-      <workItem from="1456927141440" duration="5000000" />
+      <workItem from="1456927141440" duration="5006000" />
     </task>
     <task id="LOCAL-00001" summary="autocommit">
       <created>1456756729491</created>
@@ -1395,7 +1395,13 @@
       <option name="project" value="LOCAL" />
       <updated>1456935682110</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="ideal auto commit">
+      <created>1456936456280</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1456936456281</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1431,7 +1437,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76778000" />
+    <option name="totallyTimeSpent" value="76784000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="142" y="94" width="2187" height="1236" extended-state="0" />
