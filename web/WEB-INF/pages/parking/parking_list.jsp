@@ -189,7 +189,7 @@
             <div class="panel-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="/getAllRecords">查看停车记录</a>
+                        <a href="${pageContext.request.contextPath}/getAllRecords">查看停车记录</a>
                     </li>
                     <li class="list-group-item">
                         <a href="/getIncome">查看财务信息</a>

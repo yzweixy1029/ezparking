@@ -26,17 +26,14 @@ public class Record {
 
     //此次停车消费
     @Column(name = "COST")
-    @NotEmpty
     private float cost;
 
     //停车开始时间
     @Column(name = "START_TIME")
-    @NotEmpty
     private Date startTime;
 
     //停车结束时间
     @Column(name = "END_TIME")
-    @NotEmpty
     private Date endTime;
 
     //车牌号

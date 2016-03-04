@@ -183,27 +183,14 @@
         <div class="panel-heading">
             <h3 class="panel-title">操作</h3>
         </div>
-        <c:if test="${authority == 0}">
+
             <div class="panel-body">
                 <ul class="list-group">
                     <li class="list-group-item">
-                        <a href="get_users">管理账户</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#">编辑业务员提成</a>
+                        <a href="${pageContext.request.contextPath}/listParking">查看停车位情况</a>
                     </li>
                 </ul>
             </div>
-        </c:if>
-        <c:if test="${authority == 1}">
-            <div class="panel-body">
-                <ul class="list-group">
-                    <li class="list-group-item">
-                        <a href="${pageContext.request.contextPath}/create_order">创建订单</a>
-                    </li>
-                </ul>
-            </div>
-        </c:if>
 
     </div>
 </div>

@@ -21,7 +21,7 @@ public class RecordDAOImpl extends BaseDAOImpl<Record> implements BaseDAO<Record
      * @return
      */
     public Record getUnsettledRecordByPlateNumber(String plateNumber) {
-        String jpql = "SELECT r FROM Record r WHERE r.plateNumber=?1";
+        String jpql = "SELECT r FROM Record r WHERE r.plateNumber=?1 AND END_TIME is null";
         return (Record) this.uniqueResult(jpql, plateNumber);
     }
 

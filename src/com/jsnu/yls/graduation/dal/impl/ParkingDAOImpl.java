@@ -118,8 +118,7 @@ public class ParkingDAOImpl extends BaseDAOImpl<Parking> implements BaseDAO<Park
      * @return
      */
     public List<String> getAllRegions(){
-        String jpql = "SELECT distinct p.region FROM Parking p";
-        String sql = "SELECT distinct a.region FROM parking as a";
+        String sql = "SELECT distinct a.region FROM PARKING as a";
         return this.executeSQLQuery(sql);
     }
 
